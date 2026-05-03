@@ -1,0 +1,23 @@
+EC2 + S3 + IAM for Secure Access
+ setup for user logs into an EC2 instance using SSH and then accesses data stored in an S3 bucket through IAM permissions. 👍
+User -> SSH -> EC2 -> IAM -> S3
+
+1.Create IAM role with EC2 To access Realonly access S3 Bucket only
+2.Create and launch EC2 instance with attach IAM role to this ec2 instance
+install aws cli and then configure aws with cmd
+3.take SSH 
+sudo apt update && sudo apt upgrade -y
+sudo apt install unzip
+ccurl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+aws --version
+
+4. Create S3 bucket  attach same role to s3 bucket
+5.upload file.txt into s3 bucket 
+aws s3 ls
+
+6.yes, able to access the data of Bucket
+aws s3 ls s3://your-bucket-name # it will show bucket name
+aws s3 cp s3://your-bucket-name/test.txt .  # it will copy data from s3 to ec2 server
+ls
